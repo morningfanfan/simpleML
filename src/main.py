@@ -12,9 +12,8 @@ from app import app
 from model import MLModel
 from util import check_data_format, check_idx_format
 
-# init flask app and database
 
-engine = create_engine(config.DATABASE_URI)
+engine = create_engine(config.DATABASE_URI)  # init database
 
 DEFAULT_MODEL_NAME = "stockdemo"
 
@@ -35,7 +34,7 @@ def get_existed_results():
         model_name = request.args.get("model", DEFAULT_MODEL_NAME, type=str)
         idx = request.args.get("index")
         check_idx_format(idx)
-        table_name = model_name  # the table name is the same as the model name
+        table_name = model_name  # the table name is stored the same as the model name
         text_sql = "SELECT output FROM " + \
             table_name + " WHERE id = " + str(idx) + ";"  # raw SQL sentence
         with engine.connect() as con:

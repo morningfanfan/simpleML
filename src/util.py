@@ -12,11 +12,11 @@ def check_data_format(data):
             if isinstance(row, list):
                 check(row)
             elif type(row) == int or type(row) == float:
-                continue
+                continue  # data should be numbers
             else:
                 raise ValueError
 
-    check(data)
+    check(data)  # demension of data is uncertain
 
 
 def check_idx_format(idx):

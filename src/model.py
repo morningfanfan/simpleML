@@ -2,7 +2,7 @@ import numpy as np
 from config import MODEL_LIST
 
 """
-class for newing a machine learning model object
+class for a machine learning model object
 """
 
 
