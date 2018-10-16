@@ -1,5 +1,15 @@
-DATABASE_URI = "sqlite:///database/local.db"
-MODEL_LIST = {
-    "stockdemo": {"name": "assets/models/stockdemo.h5", },
-    "stockdemo2": {"name": "assets/models/stockdemo2.h5"}
-}
+from os import environ, listdir
+from pickle import load
+
+DATABASE_URI = environ.get("DATABASE_URL", "sqlite:///database/local.db")
+ASSETS_DIR = environ.get("ASSETS_DIR", "assets")
+MODEL_LIST = {}
+
+for file_name in listdir(f"{ASSETS_DIR}/models"):
+    if not file_name.endswith(".pkl"):
+        continue
+    filepath = f"{ASSETS_DIR}/models/{file_name}"
+    print(f"Loading model {filepath}")
+    with open(filepath, "rb") as f:
+        model = load(f)
+    MODEL_LIST[file_name[:-4]] = model

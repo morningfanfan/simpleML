@@ -1,9 +1,22 @@
-def check_data_format(data):
+"""
+Utilities for checking data format
+"""
 
-    if len(data) == 4 and all(type(i) == int for i in data):
-        return True
-    else:
-        raise IndexError
+
+def check_data_format(data):
+    if not isinstance(data, list):
+        raise ValueError
+
+    def check(data):
+        for row in data:
+            if isinstance(row, list):
+                check(row)
+            elif type(row) == int or type(row) == float:
+                continue
+            else:
+                raise ValueError
+
+    check(data)
 
 
 def check_idx_format(idx):

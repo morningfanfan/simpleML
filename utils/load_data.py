@@ -5,10 +5,18 @@ from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
+"""
+a utility for adding random data to the database
+
+schema: 
+database (default: sqlite:///database/local.db)
+table name (default: stockdemo)
+row: id | open | high | low | close | output
+"""
+
 
 class Line(Base):
-    # Tell SQLAlchemy what the table name is and if there"s any table-specific arguments it should know about
-    __tablename__ = "stockdemo2"
+    __tablename__ = "stockdemo"
     id = Column(Integer, primary_key=True, nullable=False)
     open = Column(Float)
     high = Column(Float)
@@ -29,10 +37,10 @@ if __name__ == "__main__":
     s = session()
 
     try:
-        X_train = np.random.random((1000, 4))
-        y_train = np.random.random((1000, 1))
+        X = np.random.random((1000, 4))
+        y = np.random.random((1000, 1))
 
-        for idx, i in enumerate(zip(X_train, y_train)):
+        for idx, i in enumerate(zip(X, y)):
             record = Line(**{
                 "id": idx,
                 "open": i[0][0],
