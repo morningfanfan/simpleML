@@ -8,6 +8,35 @@ In this small demo, I assumed two basic requirments:
 
 ### Usage
 
+### File Structure
+
+├── Dockerfile
+├── Justfile
+├── README.md
+├── assets
+│   └── models
+│   ├── stockdemo.pkl
+│   └── stockdemo2.pkl
+├── database
+│   └── local.db
+├── exp
+│   ├── build_model.ipynb
+│   └── model.pkl
+├── requirements.txt
+├── src
+│   ├── app.py
+│   ├── config.py
+│   ├── error.py
+│   ├── main.py
+│   ├── model.py
+│   └── util.py
+├── tests
+├── tree.txt
+└── utils
+└── load_data.py
+
+7 directories, 17 files
+
 ### Proposed future imrpovements:
 
 - Increasing the input forms of data.
