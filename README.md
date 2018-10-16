@@ -1,12 +1,33 @@
-### Intro
+## SimpleML
 
-In this small demo, I assumed two basic requirments:
+In this small demo, two basic requirments were assumed:
 
 1. The user needs to fetch results in an existed database, which is predicted by the ML model with offered data in advance.
 
 2. The user needs to get fresh results in real time by providing new input data.
 
 ### Usage
+
+Install Docker and Just(command runner)
+
+```
+brew install just
+brew cask install docker
+```
+
+Runing the program the first time by
+
+```
+just icombo
+```
+
+it will build and run the docker image, or running the program by
+
+```
+just run-image
+```
+
+it will run the built image if it exists.
 
 ### File Structure
 
@@ -16,11 +37,12 @@ In this small demo, I assumed two basic requirments:
 ├── README.md
 ├── assets
 │   └── models
-│   ├── stockdemo.pkl
-│   └── stockdemo2.pkl
+│       ├── stockdemo.pkl
+│       └── stockdemo2.pkl
 ├── database
 │   └── local.db
 ├── exp
+│   ├── README.md
 │   ├── build_model.ipynb
 │   └── model.pkl
 ├── requirements.txt
@@ -34,12 +56,16 @@ In this small demo, I assumed two basic requirments:
 ├── tests
 ├── tree.txt
 └── utils
-└── load_data.py
+    └── load_data.py
 
-7 directories, 17 files
+7 directories, 18 files
 ```
 
-### Proposed future imrpovements:
+### Screenshots
+
+![img](https://i.imgur.com/GoCjeqn.png)
+
+## Proposed future imrpovements:
 
 - Increasing the input forms of data.
 
