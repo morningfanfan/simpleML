@@ -10,6 +10,7 @@ In this small demo, I assumed two basic requirments:
 
 ### File Structure
 
+```
 ├── Dockerfile
 ├── Justfile
 ├── README.md
@@ -36,6 +37,7 @@ In this small demo, I assumed two basic requirments:
 └── load_data.py
 
 7 directories, 17 files
+```
 
 ### Proposed future imrpovements:
 
