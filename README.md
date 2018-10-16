@@ -1,6 +1,6 @@
 ## SimpleML
 
-In this small demo, two basic requirments were assumed:
+In this small demo, two basic requirements were assumed:
 
 1. The user needs to fetch results in an existed database, which is predicted by the ML model with offered data in advance.
 
@@ -75,6 +75,6 @@ it will run the built image if it exists.
 
 - Accelarating by adding cache architetcure.
 
-  This improvement aims at decreasing the time of real-time prediction (the second requirment above). Sometimes, the user has to wait a long time when they try to get a result from offered data if the ML model is so complex that costs much time.
+  This improvement aims at decreasing the time of real-time prediction (the second requirement above). Sometimes, the user has to wait a long time when they try to get a result from offered data if the ML model is so complex that costs much time.
 
-  To improve the performance, we can add every predicted result to the database when it is from new offered data. Thus every time the user requests for predicting, we seek for the offered data in the database first and run the ML model only if there is no corresponding answer.
+  To improve the performance, we can add every predicted result to the database when it is from new offered data. Thus every time the user requests for predicting, we seek the offered data in the database first and run the ML model only if there is no corresponding answer.
