@@ -10,7 +10,7 @@ import config
 import error
 from app import app
 from model import MLModel
-from util import check_data_format, check_idx_format
+from util import Util
 
 
 engine = create_engine(config.DATABASE_URI)  # init database
@@ -33,7 +33,7 @@ def get_existed_results():
     try:
         model_name = request.args.get("model", DEFAULT_MODEL_NAME, type=str)
         idx = request.args.get("index")
-        check_idx_format(idx)
+        Util.check_idx_format(idx)
         table_name = model_name  # the table name is stored the same as the model name
         text_sql = "SELECT output FROM " + \
             table_name + " WHERE id = " + str(idx) + ";"  # raw SQL sentence
@@ -74,7 +74,7 @@ def realtime_predict():
     data = request.json.get("data")
 
     try:
-        check_data_format(data)
+        Util.check_data_format(data)
         model = MLModel(model_name)
         res = model.predict(data)
 

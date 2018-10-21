@@ -3,21 +3,23 @@ Utilities for checking data format
 """
 
 
-def check_data_format(data):
-    if not isinstance(data, list):
-        raise ValueError
+class Util:
+    @staticmethod
+    def check_data_format(data):
+        if not isinstance(data, list):
+            raise ValueError
 
-    def check(data):
-        for row in data:
-            if isinstance(row, list):
-                check(row)
-            elif type(row) == int or type(row) == float:
-                continue  # data should be numbers
-            else:
-                raise ValueError
+        def check(data):
+            for row in data:
+                if isinstance(row, list):
+                    check(row)
+                elif type(row) == int or type(row) == float:
+                    continue  # data should be numbers
+                else:
+                    raise ValueError
 
-    check(data)  # demension of data is uncertain
+        check(data)  # demension of data is uncertain
 
-
-def check_idx_format(idx):
-    return int(idx)
+    @staticmethod
+    def check_idx_format(idx):
+        return int(idx)
