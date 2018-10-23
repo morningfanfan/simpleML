@@ -18,18 +18,16 @@ engine = create_engine(config.DATABASE_URI)  # init database
 DEFAULT_MODEL_NAME = "stockdemo"
 
 
-"""
-URL: /results
-METHOD: GET
-PARAMETERS: 
-          VALUE: model(default=stockdemo), index
-          FORM: url param
-FUNCTION: return the value of 'output' in the database of the specified model 
-"""
-
-
 @app.route("/results")
 def get_existed_results():
+    """
+    URL: /results
+    METHOD: GET
+    PARAMETERS: 
+            VALUE: model(default=stockdemo), index
+            FORM: url param
+    FUNCTION: return the value of 'output' in the database of the specified model 
+    """
     try:
         model_name = request.args.get("model", DEFAULT_MODEL_NAME, type=str)
         idx = request.args.get("index")
@@ -58,18 +56,16 @@ def get_existed_results():
             raise
 
 
-"""
-URL: /predict
-METHOD: POST
-PARAMETERS: 
-           VALUE:model(default=stockdemo), data
-           FORM: raw json
-FUNCTION: return the output of the specified model by using the offered data as an input
-"""
-
-
 @app.route("/predict", methods=["POST"])
 def realtime_predict():
+    """
+    URL: /predict
+    METHOD: POST
+    PARAMETERS: 
+            VALUE:model(default=stockdemo), data
+            FORM: raw json
+    FUNCTION: return the output of the specified model by using the offered data as an input
+    """
     model_name = request.json.get("model", DEFAULT_MODEL_NAME)
     data = request.json.get("data")
 

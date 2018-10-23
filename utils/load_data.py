@@ -5,17 +5,16 @@ from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
-"""
-a utility for adding random data to the database
-
-schema: 
-database (default: sqlite:///database/local.db)
-table name (default: stockdemo)
-row: id | open | high | low | close | output
-"""
-
 
 class Line(Base):
+    """
+    a utility for adding random data to the database
+
+    schema: 
+    database (default: sqlite:///database/local.db)
+    table name (default: stockdemo)
+    row: id | open | high | low | close | output
+    """
     __tablename__ = "stockdemo"
     id = Column(Integer, primary_key=True, nullable=False)
     open = Column(Float)

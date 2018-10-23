@@ -1,9 +1,10 @@
-"""
-Utilities for checking data format
-"""
-
 
 class Util:
+    """
+    Utilities for checking data format
+    static method: check_data_format -> check if the minimum component of data is a number
+    static method: check_index_formax -> check if data is an int number, else raise an error 
+    """
     @staticmethod
     def check_data_format(data):
         if not isinstance(data, list):
