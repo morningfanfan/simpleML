@@ -5,6 +5,7 @@ DATABASE_URI = environ.get("DATABASE_URL", "sqlite:///database/local.db")
 ASSETS_DIR = environ.get("ASSETS_DIR", "assets")
 MODEL_LIST = {}
 
+
 """
 load all models to MODEL_LIST
 """
